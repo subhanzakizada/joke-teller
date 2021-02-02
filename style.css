@@ -18,6 +18,45 @@ body {
     align-items: center;
     background: url(robot.gif);
     background-size: contain;
-    background-position: left center;   
+    background-position: left center;
     background-repeat: no-repeat
+}
+
+#btn-joke {
+    cursor: pointer;
+    outline: none;
+    background: #ff3482;
+    width: 250px;
+    height: 50px;
+    font-size: 20px;
+    font-family: 'Courier New''Courier'sans-serif;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 2px 2px 20px 10px rgba(0, 0, 0, 0.3);
+}
+
+#btn-joke:hover {
+    filter: brightness(90%);
+}
+
+#btn-joke:active {
+    transform: scale(0.97)
+}
+
+#btn-disabled {
+    cursor: default;
+    filter: brightness(30%)
+}
+
+/* Media Query: Tablet or Smaller */
+@media screen and (max-width:1000px) {
+    .container {
+        background-position: center center;
+        background-size: cover;
+    }
+
+    #btn-joke {
+        box-shadow: 5px 5px 30px 20px rgba(0, 0, 0, 0.5);
+    }
 }
