@@ -2,13 +2,21 @@ const btn = document.getElementById('btn-joke')
 const audioElement = document.getElementById('audio')
 
 // toggle button's disable status
-const toggleBtn = function() {
+const toggleActiveBtn = function() {
     btn.disabled = !btn.disabled
+    btn.classList.toggle('btn-disabled')
+}
+
+// toggle button's color slightly when hover on it
+const toggleHoverBtn = function() {
+    btn.classList.toggle('btn-joke-hover')
 }
 
 // Getting Jokes from API
 const getJokes = async function() {
-    btn.disabled = true
+    // calling toggleActiveBtn fn
+    toggleActiveBtn()
+    
     // API - sv443 - https://sv443.net/jokeapi/v2/
     const url = 'https://v2.jokeapi.dev/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist,explicit'
     let joke = ''
@@ -46,8 +54,9 @@ const tellMe = function(joke) {
     });
 }
 
-// Event Listeners
+// Handling Events
 btn.addEventListener('click', getJokes)
-
 // executes when audio ends
-audioElement.addEventListener('ended', toggleBtn)
+audioElement.addEventListener('ended', toggleActiveBtn)
+btn.addEventListener('mouseover', toggleHoverBtn)
+btn.addEventListener('mouseout', toggleHoverBtn)
